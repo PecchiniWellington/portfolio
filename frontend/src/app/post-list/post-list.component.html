@@ -1,0 +1,12 @@
+<div *ngIf="posts.length > 0">
+  <div class="chip progress" *ngFor="let post of posts">
+    <span class="closebtn"> &times; </span>
+    <span class="card-title">{{ post.title }}</span>
+    <span class="card-description">{{ post.description }}</span>
+    <div class="progress-card-status-date-container">
+      <span class="card-status">status</span>
+      <!-- <Moment class="card-date" format="YYYY/MM/DD" date={dateToFormat} /> -->
+    </div>
+  </div>
+</div>
+<div *ngIf="posts.length <= 0">No posts added yet</div>

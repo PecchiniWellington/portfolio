@@ -14,16 +14,18 @@ export const createTaskProva = async (
     task
       .save()
       .then((result: ItaskProva) => {
-        res
+        const response = res
           .status(201)
           .json({ message: "Post created successfully", task: result });
+        if (!response) {
+          throw new Error("Something went wrong!");
+        }
       })
-      .catch((err: NativeError) => {
-        res.status(500).json({ message: "server error" });
+      .catch((error: NativeError) => {
+        res.status(400).json({ message: error.message });
         next();
       });
-    /* res.status(201).send({ ...req.body }); */
   } catch (error) {
-    console.log(error);
+    res.status(500).json({ message: error.message });
   }
 };

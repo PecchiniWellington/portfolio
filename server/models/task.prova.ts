@@ -4,9 +4,11 @@ import { ItaskProva } from "../interfaces/Itask";
 export const TaskProvaSchema = new mongoose.Schema<ItaskProva>({
   title: {
     type: String,
+    required: true,
   },
   description: {
     type: String,
+    required: true,
   },
 });
 

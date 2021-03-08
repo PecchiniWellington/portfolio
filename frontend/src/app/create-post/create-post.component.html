@@ -1,0 +1,26 @@
+<form (submit)="onCreate(postForm)" #postForm="ngForm">
+  <label class="labels-tasklist" for="title"> title </label>
+  <input
+    id="title"
+    type="text"
+    name="title"
+    ngModel
+    required
+    minlength="3"
+    #title="ngModel"
+  />
+  <label class="labels-tasklist" for="status"> status </label>
+  <select name="" id="status"></select>
+  <label class="labels-tasklist" for="description"> description </label>
+  <textarea
+    id="description"
+    rows="10"
+    name="description"
+    ngModel
+    #description="ngModel"
+    required
+  ></textarea>
+  <hr />
+  <button type="submit">Save Post</button>
+</form>
+<div *ngIf="title.invalid && title.dirty">titolo non valido</div>

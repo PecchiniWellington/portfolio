@@ -16,6 +16,8 @@ const DB = async () => {
     );
     if (!db) {
       throw new Error("not connected");
+    } else {
+      console.log("DB connected!");
     }
   } catch (error) {
     console.log(error.message);
